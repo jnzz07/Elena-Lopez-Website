@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Elena López Gutiérrez — Terapeuta Ocupacional y Consultora Sanitaria Online. 25+ años de experiencia. Sesiones por videollamada para toda España y LATAM.">
+<title>Elena López Gutiérrez — Consultoría Online · Terapia Ocupacional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   RESET & TOKENS
+═══════════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --ink:       #0D1117;
+  --ink2:      #161B24;
+  --ink3:      #1E2533;
+  --surface:   #F7F3EE;
+  --surface2:  #EDE8DF;
+  --sage:      #4E7262;
+  --sage-l:    #6FAE8C;
+  --sage-d:    #2F4A3B;
+  --sage-g:    rgba(79,114,98,.12);
+  --gold:      #C4845A;
+  --gold-l:    #DC9E72;
+  --gold-d:    #A06840;
+  --wh:        #FFFFFF;
+  --txt:       #0D1117;
+  --txt2:      #424A57;
+  --txt3:      #7A8494;
+  --glow-sage: 0 0 40px rgba(79,114,98,.35),0 0 80px rgba(79,114,98,.15);
+  --glow-gold: 0 0 40px rgba(196,132,90,.35),0 0 80px rgba(196,132,90,.15);
+  --r-sm: 8px; --r-md: 14px; --r-lg: 22px; --r-xl: 30px; --r-full: 999px;
+  --ease:   cubic-bezier(.4,0,.2,1);
+  --spring: cubic-bezier(.34,1.56,.64,1);
+  --eout:   cubic-bezier(0,0,.2,1);
+  --f-serif: 'Cormorant Garamond',Georgia,serif;
+  --f-sans:  'DM Sans',system-ui,sans-serif;
+  --max: 1300px;
+  --sp: clamp(80px,10vw,130px);
+}
+
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--f-sans);
+  font-size:clamp(15px,1.05vw,17px);
+  line-height:1.75;
+  color:var(--txt);
+  background:var(--surface);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{font-family:var(--f-sans)}
+h1,h2,h3,h4,h5{font-family:var(--f-serif);font-weight:600;line-height:1.15}
+h1{font-size:clamp(3rem,6.5vw,5.5rem)}
+h2{font-size:clamp(2.1rem,4.2vw,3.4rem)}
+h3{font-size:clamp(1.4rem,2.5vw,2rem)}
+h4{font-size:clamp(1.05rem,1.6vw,1.35rem)}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 clamp(16px,3vw,32px)}
+
+@media(hover:none){body,button{cursor:auto}}
+
+/* ═══════════════════════════════════════════════
+   SCROLL PROGRESS
+═══════════════════════════════════════════════ */
+#prog{
+  position:fixed;top:0;left:0;height:2px;width:0;
+  background:linear-gradient(90deg,var(--sage-l),var(--gold-l),var(--sage-l));
+  background-size:200%;
+  z-index:9996;
+  animation:prog-shimmer 2s linear infinite;
+}
+@keyframes prog-shimmer{to{background-position:200% 0}}
+
+/* ═══════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════ */
+.nav{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  padding:22px 0;
+  transition:padding .4s var(--ease),background .4s,box-shadow .4s;
+}
+.nav.s{
+  background:rgba(13,17,23,.92);
+  backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);
+  box-shadow:0 1px 0 rgba(111,174,140,.12);
+  padding:13px 0;
+}
+.nav-i{display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:0 clamp(16px,3vw,32px)}
+.nav-logo{font-family:var(--f-serif);font-size:1.55rem;font-weight:700;color:var(--wh);letter-spacing:-.02em}
+.nav-logo em{font-style:italic;color:var(--sage-l)}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{
+  font-size:.83rem;font-weight:500;
+  color:rgba(255,255,255,.6);
+  position:relative;padding-bottom:3px;
+  transition:color .2s;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:0;left:0;
+  width:0;height:1px;background:var(--sage-l);
+  transition:width .3s var(--ease);
+}
+.nav-links a:hover{color:var(--wh)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 22px;
+  background:rgba(79,114,98,.2);
+  border:1px solid rgba(111,174,140,.35);
+  color:var(--wh)!important;
+  border-radius:var(--r-full);
+  font-weight:600;font-size:.82rem;
+  transition:all .3s var(--ease);
+  backdrop-filter:blur(8px);
+}
+.nav-cta:hover{
+  background:var(--sage);
+  border-color:var(--sage);
+  box-shadow:var(--glow-sage);
+  transform:translateY(-1px);
+}
+.nav-cta::after{display:none!important}
+/* hamburger */
+.ham{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;padding:8px;
+  min-width:44px;min-height:44px;align-items:center;justify-content:center;
+  z-index:1002;
+}
+.ham span{
+  display:block;width:22px;height:1.5px;
+  background:var(--wh);
+  border-radius:2px;transition:all .3s var(--ease);
+}
+.ham.a span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
+.ham.a span:nth-child(2){opacity:0;transform:scaleX(0)}
+.ham.a span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+/* mobile menu */
+.mob-menu{
+  position:fixed;inset:0;
+  background:rgba(10,14,20,.97);
+  backdrop-filter:blur(24px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:28px;z-index:1001;
+  opacity:0;pointer-events:none;
+  transition:opacity .5s var(--ease);
+}
+.mob-menu.open{opacity:1;pointer-events:all}
+.mob-menu a{font-family:var(--f-serif);font-size:2rem;font-weight:600;color:var(--wh);transition:color .2s}
+.mob-menu a:hover{color:var(--sage-l)}
+.mob-menu .nav-cta{font-family:var(--f-sans);font-size:1rem;padding:16px 40px;margin-top:8px}
+
+/* ═══════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:10px;padding:15px 32px;
+  border-radius:var(--r-full);
+  font-weight:600;font-size:.92rem;
+  font-family:var(--f-sans);
+  border:2px solid transparent;
+  min-height:52px;white-space:nowrap;
+  position:relative;overflow:hidden;
+  transition:transform .3s var(--spring),box-shadow .3s var(--ease),background .3s,border-color .3s;
+  isolation:isolate;
+}
+/* ripple */
+.btn .ripple{
+  position:absolute;border-radius:50%;
+  background:rgba(255,255,255,.25);
+  transform:scale(0);animation:rip .55s var(--eout);
+  pointer-events:none;
+}
+@keyframes rip{to{transform:scale(4);opacity:0}}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+
+.btn-primary{
+  background:var(--sage);color:var(--wh);border-color:var(--sage);
+  box-shadow:0 4px 20px rgba(79,114,98,.3);
+}
+.btn-primary:hover{background:var(--sage-d);border-color:var(--sage-d);box-shadow:var(--glow-sage)}
+.btn-primary::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.btn-primary:hover::before{opacity:1}
+
+.btn-glow{
+  background:transparent;color:var(--sage-l);
+  border-color:rgba(111,174,140,.5);
+}
+.btn-glow:hover{
+  background:rgba(79,114,98,.15);
+  border-color:var(--sage-l);
+  box-shadow:0 0 24px rgba(111,174,140,.35),inset 0 0 24px rgba(111,174,140,.05);
+  color:var(--wh);
+}
+.btn-gold{
+  background:var(--gold);color:var(--wh);border-color:var(--gold);
+  box-shadow:0 4px 20px rgba(196,132,90,.3);
+}
+.btn-gold:hover{background:var(--gold-d);border-color:var(--gold-d);box-shadow:var(--glow-gold)}
+.btn-glass{
+  background:rgba(255,255,255,.08);color:var(--wh);
+  border-color:rgba(255,255,255,.2);
+  backdrop-filter:blur(8px);
+}
+.btn-glass:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.35);box-shadow:0 8px 32px rgba(0,0,0,.25)}
+.btn-dark{background:var(--wh);color:var(--ink);border-color:var(--wh);box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.btn-dark:hover{box-shadow:0 8px 40px rgba(0,0,0,.25);transform:translateY(-3px)}
+
+/* ═══════════════════════════════════════════════
+   SECTION & UTILITIES
+═══════════════════════════════════════════════ */
+.sec{padding:var(--sp) 0}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.7rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:3.5px;
+  color:var(--sage-l);margin-bottom:14px;
+}
+.eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--sage-l)}
+.eyebrow.gold{color:var(--gold-l)}
+.eyebrow.gold::before{background:var(--gold-l)}
+.sec-hdr{text-align:center;margin-bottom:clamp(48px,7vw,80px)}
+.sec-hdr p{font-size:clamp(1rem,1.2vw,1.1rem);color:var(--txt2);max-width:620px;margin:12px auto 0;line-height:1.85}
+
+/* REVEAL */
+.rv      {opacity:0;transform:translateY(40px);transition:opacity .8s var(--eout),transform .8s var(--eout)}
+.rv-l    {opacity:0;transform:translateX(-40px);transition:opacity .8s var(--eout),transform .8s var(--eout)}
+.rv-r    {opacity:0;transform:translateX(40px);transition:opacity .8s var(--eout),transform .8s var(--eout)}
+.rv-s    {opacity:0;transform:scale(.9);transition:opacity .8s var(--eout),transform .8s var(--eout)}
+.rv.v,.rv-l.v,.rv-r.v,.rv-s.v{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
+.d4{transition-delay:.28s}.d5{transition-delay:.35s}.d6{transition-delay:.42s}
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  background:var(--ink);
+  position:relative;overflow:hidden;
+  padding:clamp(100px,14vw,170px) 0 clamp(60px,8vw,100px);
+}
+/* Animated gradient mesh background */
+.hero-mesh{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 70% at 75% 30%, rgba(79,114,98,.18) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 20% 75%, rgba(196,132,90,.12) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 50% at 50% 50%, rgba(30,37,51,.8) 0%, transparent 70%);
+  animation:mesh-shift 12s ease-in-out infinite;
+}
+@keyframes mesh-shift{
+  0%,100%{background-position:0% 0%}
+  33%{background-position:5% -3%}
+  66%{background-position:-3% 5%}
+}
+/* Grid lines */
+.hero-grid-lines{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(111,174,140,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(111,174,140,.06) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 70%);
+  animation:grid-drift 20s linear infinite;
+}
+@keyframes grid-drift{0%{transform:translate(0,0)}100%{transform:translate(80px,80px)}}
+
+#hero-cvs{position:absolute;inset:0;opacity:.55}
+
+/* Floating orbs */
+.hero-orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none}
+.o1{
+  width:700px;height:700px;
+  background:radial-gradient(circle,rgba(79,114,98,.2) 0%,transparent 65%);
+  top:-25%;right:-10%;
+  animation:float1 10s ease-in-out infinite;
+}
+.o2{
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(196,132,90,.16) 0%,transparent 65%);
+  bottom:-15%;left:15%;
+  animation:float1 13s ease-in-out infinite reverse;animation-delay:-6s;
+}
+.o3{
+  width:350px;height:350px;
+  background:radial-gradient(circle,rgba(111,174,140,.12) 0%,transparent 65%);
+  top:40%;left:-5%;
+  animation:float1 8s ease-in-out infinite;animation-delay:-3s;
+}
+@keyframes float1{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(25px,-30px) scale(1.06)}
+  66%{transform:translate(-18px,22px) scale(.96)}
+}
+
+/* Mouse-follow glow (JS-driven) */
+#hero-glow{
+  position:absolute;width:400px;height:400px;
+  background:radial-gradient(circle,rgba(111,174,140,.12) 0%,transparent 65%);
+  border-radius:50%;pointer-events:none;filter:blur(40px);
+  transform:translate(-50%,-50%);
+  transition:left .8s var(--ease),top .8s var(--ease);
+  z-index:1;
+}
+
+.hero-inner{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1.1fr .9fr;
+  gap:80px;align-items:center;
+}
+
+/* Badge */
+.hero-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:7px 18px;
+  background:rgba(111,174,140,.1);
+  border:1px solid rgba(111,174,140,.25);
+  border-radius:var(--r-full);
+  font-size:.78rem;font-weight:500;
+  color:rgba(255,255,255,.7);margin-bottom:26px;
+  backdrop-filter:blur(10px);
+  box-shadow:inset 0 1px 0 rgba(111,174,140,.2);
+}
+.badge-pulse{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--sage-l);position:relative;
+}
+.badge-pulse::before{
+  content:'';position:absolute;inset:-3px;
+  border-radius:50%;background:rgba(111,174,140,.35);
+  animation:badge-ring 2s ease-out infinite;
+}
+@keyframes badge-ring{
+  0%{transform:scale(.7);opacity:1}
+  100%{transform:scale(2);opacity:0}
+}
+
+/* Hero headline — scramble target */
+.hero h1{color:var(--wh);margin-bottom:22px;font-weight:500;letter-spacing:-.025em;line-height:1.1}
+.hero h1 em{font-style:italic;color:var(--sage-l);font-weight:300}
+.hero h1 strong{font-weight:700;display:block}
+/* Gradient text */
+.grad-txt{
+  background:linear-gradient(135deg,var(--sage-l) 0%,#9BC4A8 40%,var(--wh) 70%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero-sub{
+  font-size:clamp(1rem,1.2vw,1.15rem);
+  color:rgba(255,255,255,.52);
+  margin-bottom:38px;max-width:520px;line-height:1.9;
+}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px}
+
+/* Animated stats */
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:rgba(255,255,255,.06);
+  border-radius:16px;overflow:hidden;
+}
+.h-stat{
+  padding:22px 14px;
+  background:rgba(255,255,255,.03);
+  text-align:center;
+  position:relative;overflow:hidden;
+  transition:background .3s var(--ease);
+}
+.h-stat::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(111,174,140,.08),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.h-stat:hover{background:rgba(255,255,255,.06)}
+.h-stat:hover::before{opacity:1}
+/* SVG ring counter */
+.ring-wrap{position:relative;width:72px;height:72px;margin:0 auto 10px}
+.ring-bg{stroke:rgba(255,255,255,.06)}
+.ring-fg{
+  stroke:var(--sage-l);
+  stroke-dasharray:188;
+  stroke-dashoffset:188;
+  stroke-linecap:round;
+  transform:rotate(-90deg);transform-origin:50% 50%;
+  transition:stroke-dashoffset 1.6s var(--eout);
+  filter:drop-shadow(0 0 6px rgba(111,174,140,.6));
+}
+.ring-fg.gold-ring{stroke:var(--gold-l);filter:drop-shadow(0 0 6px rgba(196,132,90,.6))}
+.ring-num{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--f-serif);font-size:1.4rem;font-weight:700;color:var(--wh);
+}
+.ring-num em{font-style:normal;color:var(--sage-l);font-size:.9rem}
+.stat-l{font-size:.72rem;color:rgba(255,255,255,.42);line-height:1.4}
+
+/* Credential cards */
+.hero-right{display:flex;flex-direction:column;gap:13px}
+.cred{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:14px;padding:17px 20px;
+  display:flex;align-items:center;gap:16px;
+  backdrop-filter:blur(14px);
+  transition:all .3s var(--ease);
+  position:relative;overflow:hidden;
+}
+.cred::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(111,174,140,.07),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.cred:hover::before{opacity:1}
+.cred:hover{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(111,174,140,.3);
+  transform:translateX(-5px);
+  box-shadow:0 8px 30px rgba(0,0,0,.3),inset 0 1px 0 rgba(111,174,140,.15);
+}
+.cred-ic{
+  width:44px;height:44px;border-radius:8px;
+  background:rgba(79,114,98,.22);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;
+  transition:transform .3s var(--spring);
+}
+.cred:hover .cred-ic{transform:scale(1.12) rotate(-5deg)}
+.cred:nth-child(2) .cred-ic{background:rgba(196,132,90,.2)}
+.cred:nth-child(3) .cred-ic{background:rgba(111,174,140,.18)}
+.cred:nth-child(4) .cred-ic{background:rgba(196,132,90,.15)}
+.cred-title{font-family:var(--f-serif);font-size:.97rem;font-weight:600;color:var(--wh);margin-bottom:2px;line-height:1.3}
+.cred-sub{font-size:.72rem;color:rgba(255,255,255,.38)}
+
+/* Scroll indicator */
+.scroll-hint{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:rgba(255,255,255,.35);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;
+  z-index:2;animation:hint-bob 2.5s ease-in-out infinite;
+}
+@keyframes hint-bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+.scroll-arrow{
+  width:28px;height:28px;border:1.5px solid rgba(255,255,255,.2);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+}
+
+/* ═══════════════════════════════════════════════
+   ONLINE-FIRST HIGHLIGHT STRIP
+═══════════════════════════════════════════════ */
+.strip{
+  background:var(--ink2);
+  border-top:1px solid rgba(111,174,140,.1);
+  border-bottom:1px solid rgba(111,174,140,.1);
+  padding:24px 0;
+  overflow:hidden;position:relative;
+}
+.strip-inner{
+  display:flex;align-items:center;gap:0;
+  animation:strip-scroll 24s linear infinite;
+  width:max-content;
+}
+.strip-item{
+  display:flex;align-items:center;gap:10px;
+  padding:0 40px;
+  font-size:.8rem;font-weight:600;
+  color:rgba(255,255,255,.45);
+  text-transform:uppercase;letter-spacing:2px;
+  white-space:nowrap;
+}
+.strip-dot{width:4px;height:4px;border-radius:50%;background:var(--sage-l);flex-shrink:0}
+@keyframes strip-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ═══════════════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════════════ */
+.about{background:var(--wh)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-text p{color:var(--txt2);margin-bottom:18px;line-height:1.9;font-size:.96rem}
+.about-text p:first-of-type::first-letter{
+  font-family:var(--f-serif);font-size:4rem;font-weight:700;
+  float:left;line-height:.75;margin-right:10px;color:var(--sage);
+}
+.pull-quote{
+  margin:28px 0;padding:22px 26px;
+  border-left:2px solid var(--sage-l);
+  background:var(--surface);border-radius:0 10px 10px 0;
+  position:relative;overflow:hidden;
+}
+.pull-quote::before{
+  content:'';position:absolute;top:0;left:0;bottom:0;width:2px;
+  background:linear-gradient(180deg,var(--sage-l),var(--gold-l));
+}
+.pull-quote p{font-family:var(--f-serif);font-size:1.22rem;font-style:italic;color:var(--ink);margin:0;line-height:1.65}
+/* Highlight cards */
+.hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.hl{
+  background:var(--surface);border:1px solid var(--surface2);
+  border-radius:14px;padding:22px 16px;text-align:center;
+  transition:all .35s var(--ease);cursor:default;
+  position:relative;overflow:hidden;
+}
+.hl::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--sage-l),var(--gold-l));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);
+}
+.hl:hover{background:var(--wh);border-color:rgba(79,114,98,.25);box-shadow:0 8px 30px rgba(0,0,0,.07);transform:translateY(-4px)}
+.hl:hover::after{transform:scaleX(1)}
+.hl:hover .hl-ic{transform:scale(1.15) rotate(-6deg)}
+.hl-ic{font-size:1.9rem;margin-bottom:10px;display:block;transition:transform .3s var(--spring)}
+.hl h4{font-size:.96rem;color:var(--ink);margin-bottom:4px}
+.hl p{font-size:.74rem;color:var(--txt3)}
+
+/* ═══════════════════════════════════════════════
+   SEPARACIONES
+═══════════════════════════════════════════════ */
+.sep{
+  background:linear-gradient(140deg,#14201A 0%,#1A2A22 45%,var(--ink2) 100%);
+  color:var(--wh);position:relative;overflow:hidden;
+}
+.sep-bg{
+  position:absolute;inset:0;
+  background-image:
+    radial-gradient(ellipse at 85% 20%,rgba(196,132,90,.15) 0%,transparent 55%),
+    radial-gradient(ellipse at 10% 80%,rgba(111,174,140,.13) 0%,transparent 55%);
+  pointer-events:none;
+}
+.sep-lines{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(111,174,140,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(111,174,140,.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+.sep-inner{position:relative;z-index:1}
+.sep .eyebrow{color:rgba(255,255,255,.5)}
+.sep .eyebrow::before{background:rgba(255,255,255,.35)}
+.sep h2{color:var(--wh);margin-bottom:16px}
+.sep h2 em{font-style:italic;color:rgba(196,132,90,.85)}
+.sep-intro{font-size:clamp(1rem,1.2vw,1.1rem);color:rgba(255,255,255,.58);max-width:680px;line-height:1.9;margin-bottom:52px}
+.sep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:44px}
+/* Glowing cards */
+.gcard{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:20px;padding:30px 24px;
+  backdrop-filter:blur(10px);
+  transition:all .35s var(--ease);cursor:default;
+  position:relative;overflow:hidden;
+}
+.gcard::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(111,174,140,.08),transparent,rgba(196,132,90,.05));
+  opacity:0;transition:opacity .35s;
+}
+.gcard:hover::before{opacity:1}
+.gcard:hover{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(111,174,140,.3);
+  transform:translateY(-9px);
+  box-shadow:0 24px 64px rgba(0,0,0,.35),0 0 0 1px rgba(111,174,140,.15),inset 0 1px 0 rgba(111,174,140,.1);
+}
+.gcard-num{font-family:var(--f-serif);font-size:3.5rem;font-weight:700;color:rgba(255,255,255,.07);line-height:1;margin-bottom:14px}
+.gcard-ic{font-size:1.7rem;margin-bottom:14px;display:block;transition:transform .3s var(--spring)}
+.gcard:hover .gcard-ic{transform:scale(1.15) rotate(-5deg)}
+.gcard h4{font-size:1.18rem;color:var(--wh);margin-bottom:10px}
+.gcard p{font-size:.86rem;color:rgba(255,255,255,.55);line-height:1.75}
+.sep-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ═══════════════════════════════════════════════
+   ONLINE SERVICES (stream 1)
+═══════════════════════════════════════════════ */
+.s1{background:var(--ink);position:relative;overflow:hidden}
+.s1-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 40% 50% at 85% 50%,rgba(79,114,98,.1) 0%,transparent 60%),
+    radial-gradient(ellipse 30% 40% at 15% 80%,rgba(196,132,90,.08) 0%,transparent 60%);
+  pointer-events:none;
+}
+.s1 .eyebrow{color:var(--sage-l)}
+.s1 h2{color:var(--wh)}
+.s1 .sec-hdr p{color:rgba(255,255,255,.5)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+/* Interactive service cards */
+.sc{
+  border-radius:20px;padding:28px 26px;
+  transition:all .35s var(--ease);cursor:default;
+  position:relative;overflow:hidden;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+}
+.sc::after{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:2px;
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .45s var(--ease);
+}
+.sc:hover::after{transform:scaleX(1)}
+.sc::before{
+  content:'';position:absolute;inset:0;
+  opacity:0;transition:opacity .35s;
+  background:linear-gradient(135deg,rgba(111,174,140,.07),transparent);
+}
+.sc:hover::before{opacity:1}
+.sc:hover{
+  background:rgba(255,255,255,.07);
+  border-color:rgba(111,174,140,.2);
+  transform:translateY(-7px);
+  box-shadow:0 20px 56px rgba(0,0,0,.4),inset 0 1px 0 rgba(111,174,140,.12);
+}
+.sc-ic{
+  width:50px;height:50px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;margin-bottom:18px;
+  background:rgba(79,114,98,.18);
+  transition:transform .3s var(--spring),box-shadow .3s;
+}
+.sc:hover .sc-ic{transform:scale(1.1) rotate(-5deg);box-shadow:0 0 20px rgba(111,174,140,.35)}
+.sc h4{color:var(--wh);margin-bottom:9px}
+.sc p{font-size:.86rem;color:rgba(255,255,255,.5);line-height:1.75}
+.sc::after{background:linear-gradient(90deg,var(--sage-l),transparent)}
+/* Gold variant for sep section reuse */
+.sc.gold::after{background:linear-gradient(90deg,var(--gold-l),transparent)}
+.sc.gold .sc-ic{background:rgba(196,132,90,.18)}
+.sc.gold:hover{border-color:rgba(196,132,90,.2)}
+.s-cta{text-align:center;margin-top:44px}
+
+/* ═══════════════════════════════════════════════
+   EMPRESARIAL (stream 2)
+═══════════════════════════════════════════════ */
+.s2{background:var(--surface);position:relative}
+.s2::before{
+  content:'';position:absolute;top:0;right:0;
+  width:45%;height:100%;
+  background:linear-gradient(270deg,rgba(79,114,98,.05),transparent);
+  pointer-events:none;
+}
+.s2 .sc{
+  background:var(--wh);border:1px solid rgba(0,0,0,.06);
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+.s2 .sc:hover{
+  background:var(--wh);border-color:rgba(79,114,98,.2);
+  box-shadow:0 16px 48px rgba(0,0,0,.1);
+}
+.s2 .sc::before{background:linear-gradient(135deg,rgba(79,114,98,.05),transparent)}
+.s2 .sc h4{color:var(--ink)}
+.s2 .sc p{color:var(--txt2)}
+.s2 .sc-ic{background:var(--sage-g)}
+.s2 .sc::after{background:linear-gradient(90deg,var(--sage),transparent)}
+.s2 .sc.gold-card .sc-ic{background:rgba(196,132,90,.1)}
+.s2 .sc.gold-card::after{background:linear-gradient(90deg,var(--gold-l),transparent)}
+
+/* ═══════════════════════════════════════════════
+   CÓMO FUNCIONA
+═══════════════════════════════════════════════ */
+.how{background:var(--ink2);position:relative;overflow:hidden}
+.how-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(111,174,140,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(111,174,140,.04) 1px,transparent 1px);
+  background-size:70px 70px;pointer-events:none;
+}
+.how h2{color:var(--wh)}
+.how .sec-hdr p{color:rgba(255,255,255,.5)}
+.tabs-nav{
+  display:flex;justify-content:center;gap:6px;
+  margin-bottom:50px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r-full);padding:5px;
+  width:fit-content;margin-left:auto;margin-right:auto;
+}
+.tab-btn{
+  padding:11px 22px;border-radius:var(--r-full);border:none;
+  background:transparent;font-size:.84rem;font-weight:600;
+  color:rgba(255,255,255,.5);cursor:pointer;
+  transition:all .3s var(--ease);min-height:42px;
+  position:relative;
+}
+.tab-btn.a{background:var(--sage);color:var(--wh);box-shadow:0 4px 16px rgba(79,114,98,.35)}
+.tab-panel{display:none}
+.tab-panel.a{display:block}
+.steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2px;background:rgba(255,255,255,.05);
+  border-radius:20px;overflow:hidden;
+}
+.step{
+  background:rgba(255,255,255,.03);
+  padding:32px 22px;
+  position:relative;overflow:hidden;
+  transition:background .3s var(--ease);
+}
+.step::before{
+  content:'';position:absolute;top:0;left:0;bottom:0;width:2px;
+  background:linear-gradient(180deg,transparent,var(--sage-l),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.step:hover{background:rgba(255,255,255,.06)}
+.step:hover::before{opacity:1}
+.step-n{font-family:var(--f-serif);font-size:4rem;font-weight:700;color:rgba(111,174,140,.1);line-height:1;margin-bottom:14px}
+.step h4{color:var(--wh);margin-bottom:8px;font-size:1.08rem}
+.step p{font-size:.84rem;color:rgba(255,255,255,.48);line-height:1.75}
+
+/* ═══════════════════════════════════════════════
+   PRICING
+═══════════════════════════════════════════════ */
+.pricing{background:var(--ink);position:relative;overflow:hidden}
+.pricing-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 20% 50%,rgba(79,114,98,.1) 0%,transparent 55%),
+    radial-gradient(ellipse at 80% 50%,rgba(196,132,90,.08) 0%,transparent 55%);
+  pointer-events:none;
+}
+.pricing h2{color:var(--wh)}
+.pricing .sec-hdr p{color:rgba(255,255,255,.5)}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+.pc{
+  border-radius:24px;padding:38px 32px;
+  transition:all .35s var(--ease);
+  position:relative;
+}
+/* Featured card needs top padding to clear the badge */
+.pc-feat{ padding-top:52px; }
+.pc:hover{transform:translateY(-9px)}
+.pc-std{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+}
+.pc-std:hover{
+  background:rgba(255,255,255,.07);
+  border-color:rgba(111,174,140,.25);
+  box-shadow:0 24px 70px rgba(0,0,0,.4),0 0 0 1px rgba(111,174,140,.12);
+}
+/* Featured: gradient border */
+.pc-feat{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(111,174,140,.35);
+  box-shadow:0 0 40px rgba(111,174,140,.12);
+}
+.pc-feat::before{
+  content:'';position:absolute;inset:-1px;border-radius:25px;
+  background:linear-gradient(135deg,rgba(111,174,140,.5),transparent,rgba(196,132,90,.35));
+  z-index:-1;
+}
+.pc-feat:hover{box-shadow:var(--glow-sage),0 24px 70px rgba(0,0,0,.4)}
+.feat-badge{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(90deg,var(--sage-d),var(--sage),var(--sage-l));
+  color:var(--wh);
+  padding:6px 20px;border-radius:var(--r-full);
+  font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;white-space:nowrap;
+  box-shadow:0 4px 18px rgba(184,76,125,.5);
+  z-index:2;
+}
+.p-emoji{font-size:2.2rem;margin-bottom:18px;display:block}
+.pc h3{color:var(--wh);margin-bottom:6px}
+.p-desc{font-size:.84rem;color:rgba(255,255,255,.48);margin-bottom:24px;line-height:1.6}
+.p-amt{font-family:var(--f-serif);font-size:3.6rem;font-weight:700;color:var(--sage-l);line-height:1;margin-bottom:4px}
+.pc-feat .p-amt{color:var(--gold-l)}
+.p-unit{font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:26px}
+.p-divl{height:1px;background:rgba(255,255,255,.07);margin-bottom:22px}
+.p-list{margin-bottom:32px}
+.p-list li{
+  padding:8px 0;font-size:.84rem;
+  display:flex;align-items:flex-start;gap:11px;
+  color:rgba(255,255,255,.58);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.p-list li::before{content:'✓';color:var(--sage-l);font-weight:700;flex-shrink:0;font-size:.8rem}
+.pc-feat .p-list li::before{color:var(--gold-l)}
+.pc .btn{width:100%}
+
+/* ═══════════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════════ */
+.faq{background:var(--surface)}
+.faq-list{max-width:820px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(0,0,0,.06)}
+.faq-q{
+  width:100%;display:flex;justify-content:space-between;
+  align-items:center;padding:25px 0;
+  background:none;border:none;cursor:pointer;
+  font-family:var(--f-serif);
+  font-size:clamp(1.05rem,1.5vw,1.26rem);font-weight:600;
+  color:var(--ink);text-align:left;
+  transition:color .2s;gap:20px;min-height:44px;
+}
+.faq-q:hover{color:var(--sage)}
+.faq-ic{
+  width:30px;height:30px;border-radius:50%;
+  background:var(--surface2);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:1.05rem;color:var(--txt2);
+  transition:all .3s var(--ease);
+}
+.faq-item.open .faq-ic{background:var(--sage);color:var(--wh);transform:rotate(45deg);box-shadow:0 4px 14px rgba(79,114,98,.35)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .42s var(--ease)}
+.faq-ai{padding-bottom:24px;font-size:.88rem;color:var(--txt2);line-height:1.85}
+
+/* ═══════════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════════ */
+.contact{
+  background:var(--ink2);
+  position:relative;overflow:hidden;color:var(--wh);
+}
+.contact-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 80% 20%,rgba(79,114,98,.2) 0%,transparent 55%),
+    radial-gradient(ellipse at 10% 80%,rgba(196,132,90,.12) 0%,transparent 50%);
+  pointer-events:none;
+}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.contact .eyebrow{color:rgba(255,255,255,.5)}
+.contact .eyebrow::before{background:rgba(255,255,255,.35)}
+.contact h2{color:var(--wh);margin-bottom:14px}
+.contact-sub{font-size:1.05rem;color:rgba(255,255,255,.62);line-height:1.85;margin-bottom:36px}
+.c-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:20px}
+.c-ic{
+  width:44px;height:44px;border-radius:10px;
+  background:rgba(111,174,140,.14);
+  border:1px solid rgba(111,174,140,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;flex-shrink:0;
+  transition:all .3s var(--ease);
+}
+.c-item:hover .c-ic{background:rgba(111,174,140,.25);box-shadow:0 0 16px rgba(111,174,140,.25)}
+.c-item h4{color:var(--wh);font-size:.88rem;margin-bottom:2px}
+.c-item p{font-size:.83rem;color:rgba(255,255,255,.5)}
+.contact-btns{display:flex;flex-direction:column;gap:12px}
+.contact-btns .btn{justify-content:center;font-size:.9rem}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+.footer{background:var(--ink);color:rgba(255,255,255,.4);padding:68px 0 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px;margin-bottom:50px}
+.footer-logo{font-family:var(--f-serif);font-size:1.7rem;font-weight:700;color:var(--wh);margin-bottom:14px;letter-spacing:-.02em}
+.footer-logo em{font-style:italic;color:var(--sage-l)}
+.footer-desc{font-size:.84rem;color:rgba(255,255,255,.35);line-height:1.85;max-width:340px}
+.footer h5{color:var(--wh);font-family:var(--f-sans);font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;margin-bottom:18px}
+.footer-links a{display:block;padding:5px 0;font-size:.84rem;color:rgba(255,255,255,.38);transition:all .2s var(--ease)}
+.footer-links a:hover{color:var(--wh);padding-left:6px}
+.footer-div{height:1px;background:rgba(255,255,255,.06);margin-bottom:24px}
+.footer-btm{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.76rem;color:rgba(255,255,255,.25)}
+
+/* ═══════════════════════════════════════════════
+   SCROLL TO TOP
+═══════════════════════════════════════════════ */
+#toTop{
+  position:fixed;bottom:28px;right:28px;
+  width:48px;height:48px;
+  background:var(--ink2);
+  border:1px solid rgba(111,174,140,.3);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 30px rgba(0,0,0,.4);
+  opacity:0;transform:scale(.7) translateY(12px);
+  transition:all .35s var(--spring);z-index:500;
+  overflow:hidden;
+}
+#toTop.v{opacity:1;transform:scale(1) translateY(0)}
+#toTop:hover{background:var(--sage);border-color:var(--sage);box-shadow:var(--glow-sage)}
+#toTop:hover svg{stroke:white}
+#toTop svg{transition:stroke .2s}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media(max-width:1100px){
+  .hero-inner{grid-template-columns:1fr;gap:44px}
+  .hero-right{display:grid;grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr;gap:44px}
+  .sep-grid{grid-template-columns:1fr 1fr}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .price-grid{grid-template-columns:1fr 1fr}
+  .price-grid .pc:last-child{grid-column:1/-1;max-width:440px;margin:0 auto}
+  .contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  :root{--sp:clamp(52px,8vw,78px)}
+  .nav-links{display:none}
+  .ham{display:flex}
+  .hero{min-height:auto;padding-top:92px}
+  .hero-inner,.hero-right{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:repeat(3,1fr)}
+  .hero-ctas{flex-direction:column}
+  .hero-ctas .btn{width:100%;justify-content:center}
+  .hl-grid{grid-template-columns:1fr 1fr}
+  .sep-grid,.svc-grid,.price-grid{grid-template-columns:1fr}
+  .price-grid .pc:last-child{max-width:100%}
+  .steps{grid-template-columns:1fr;gap:2px}
+  .tabs-nav{flex-direction:column;width:100%;border-radius:14px;align-items:stretch}
+  .tab-btn{text-align:center}
+  .footer-grid{grid-template-columns:1fr;gap:28px;text-align:center}
+  .footer-desc{margin:0 auto}
+  .footer-btm{justify-content:center;flex-direction:column;text-align:center}
+  .rv,.rv-l,.rv-r,.rv-s{opacity:1!important;transform:none!important}
+  #toTop{display:none}
+  body{cursor:auto}
+  button{cursor:pointer}
+  .strip-inner{animation-duration:16s}
+  .scroll-hint{display:none}
+}
+@media(max-width:420px){
+  .hl-grid{grid-template-columns:1fr 1fr}
+  .sep-cta{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+
+<div id="prog"></div>
+
+<!-- Scroll to top -->
+<button id="toTop" aria-label="Volver arriba" style="border:none;cursor:pointer">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6FAE8C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- ═══════════════════════════════════════════════
+     NAVEGACIÓN
+═══════════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-i">
+    <a href="#inicio" class="nav-logo">Elena <em>López</em></a>
+    <div class="nav-links">
+      <a href="#sobre-mi">Sobre Mí</a>
+      <a href="#separaciones">Orientación Vital</a>
+      <a href="#online">Servicios</a>
+      <a href="#precios">Tarifas</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto">Contacto</a>
+      <a href="https://wa.me/34669777003?text=Hola%20Elena%2C%20me%20gustar%C3%ADa%20reservar%20una%20sesi%C3%B3n%20online." class="nav-cta" target="_blank" rel="noopener">💬 Sesión Online</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mob">
+  <a href="#sobre-mi">Sobre Mí</a>
+  <a href="#separaciones">Orientación Vital</a>
+  <a href="#online">Servicios</a>
+  <a href="#precios">Tarifas</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contacto">Contacto</a>
+  <a href="https://wa.me/34669777003?text=Hola%20Elena%2C%20me%20gustar%C3%ADa%20reservar%20una%20sesi%C3%B3n%20online." class="nav-cta" target="_blank" rel="noopener">💬 Reservar Sesión Online</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<section class="hero" id="inicio">
+  <div class="hero-mesh"></div>
+  <div class="hero-grid-lines"></div>
+  <canvas id="hero-cvs"></canvas>
+  <div class="hero-orb o1"></div>
+  <div class="hero-orb o2"></div>
+  <div class="hero-orb o3"></div>
+  <div id="hero-glow"></div>
+
+  <div class="wrap">
+    <div class="hero-inner">
+      <div id="heroL">
+        <div class="hero-badge">
+          <span class="badge-pulse"></span>
+          100% Online · Disponible en toda España y LATAM
+        </div>
+        <h1>
+          <strong>Terapia Ocupacional</strong>
+          <em class="grad-txt">y Consultoría Sanitaria</em><br>
+          100% Online
+        </h1>
+        <p class="hero-sub">Soy Elena López Gutiérrez, terapeuta ocupacional y consultora sanitaria. Sesiones por videollamada para pacientes, familias e instituciones — desde cualquier lugar, con la misma excelencia clínica.</p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/34669777003?text=Hola%20Elena%2C%20me%20gustar%C3%ADa%20reservar%20una%20sesi%C3%B3n%20online." class="btn btn-primary" target="_blank" rel="noopener">💬 Reservar Sesión Online</a>
+          <a href="#online" class="btn btn-glow">Explorar Servicios ↓</a>
+        </div>
+        <div class="hero-stats">
+          <div class="h-stat">
+            <div class="ring-wrap">
+              <svg width="72" height="72" viewBox="0 0 72 72">
+                <circle class="ring-bg" cx="36" cy="36" r="30" fill="none" stroke-width="3"/>
+                <circle class="ring-fg" id="ring1" cx="36" cy="36" r="30" fill="none" stroke-width="3"/>
+              </svg>
+              <div class="ring-num"><span class="counter" data-to="25" data-suffix="+">0</span><em>+</em></div>
+            </div>
+            <div class="stat-l">Años de experiencia</div>
+          </div>
+          <div class="h-stat">
+            <div class="ring-wrap">
+              <svg width="72" height="72" viewBox="0 0 72 72">
+                <circle class="ring-bg" cx="36" cy="36" r="30" fill="none" stroke-width="3"/>
+                <circle class="ring-fg gold-ring" id="ring2" cx="36" cy="36" r="30" fill="none" stroke-width="3"/>
+              </svg>
+              <div class="ring-num" style="font-size:1rem;color:rgba(255,255,255,.8)">🌍</div>
+            </div>
+            <div class="stat-l">España + LATAM</div>
+          </div>
+          <div class="h-stat">
+            <div class="ring-wrap">
+              <svg width="72" height="72" viewBox="0 0 72 72">
+                <circle class="ring-bg" cx="36" cy="36" r="30" fill="none" stroke-width="3"/>
+                <circle class="ring-fg" id="ring3" cx="36" cy="36" r="30" fill="none" stroke-width="3"/>
+              </svg>
+              <div class="ring-num"><span class="counter" data-to="3">0</span></div>
+            </div>
+            <div class="stat-l">Hospitales universitarios</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="cred rv d1">
+          <div class="cred-ic">🧠</div>
+          <div>
+            <div class="cred-title">Experta en Neurorrehabilitación</div>
+            <div class="cred-sub">Universidad de Barcelona · 2017</div>
+          </div>
+        </div>
+        <div class="cred rv d2">
+          <div class="cred-ic">📋</div>
+          <div>
+            <div class="cred-title">Executive Master en Gestión de la Calidad</div>
+            <div class="cred-sub">Escuela de Organización Industrial · 2001</div>
+          </div>
+        </div>
+        <div class="cred rv d3">
+          <div class="cred-ic">🎓</div>
+          <div>
+            <div class="cred-title">Diplomada en Ergoterapia</div>
+            <div class="cred-sub">Universidad Complutense de Madrid · 1998</div>
+          </div>
+        </div>
+        <div class="cred rv d4">
+          <div class="cred-ic">🔍</div>
+          <div>
+            <div class="cred-title">Diplomatura en Criminología</div>
+            <div class="cred-sub">Universidad Camilo José Cela · 2007</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-arrow">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    Scroll
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     STRIP
+═══════════════════════════════════════════════ -->
+<div class="strip">
+  <div class="strip-inner" id="stripInner">
+    <span class="strip-item"><span class="strip-dot"></span>100% Online</span>
+    <span class="strip-item"><span class="strip-dot"></span>Toda España y Latinoamérica</span>
+    <span class="strip-item"><span class="strip-dot"></span>25+ Años de Experiencia</span>
+    <span class="strip-item"><span class="strip-dot"></span>Neurorrehabilitación</span>
+    <span class="strip-item"><span class="strip-dot"></span>Orientación Emocional</span>
+    <span class="strip-item"><span class="strip-dot"></span>Consultoría Empresarial</span>
+    <span class="strip-item"><span class="strip-dot"></span>ISO 9001 · EFQM</span>
+    <span class="strip-item"><span class="strip-dot"></span>Planificación Estratégica</span>
+    <span class="strip-item"><span class="strip-dot"></span>Sesión en 24h</span>
+    <!-- duplicate for seamless loop -->
+    <span class="strip-item"><span class="strip-dot"></span>100% Online</span>
+    <span class="strip-item"><span class="strip-dot"></span>Toda España y Latinoamérica</span>
+    <span class="strip-item"><span class="strip-dot"></span>25+ Años de Experiencia</span>
+    <span class="strip-item"><span class="strip-dot"></span>Neurorrehabilitación</span>
+    <span class="strip-item"><span class="strip-dot"></span>Orientación Emocional</span>
+    <span class="strip-item"><span class="strip-dot"></span>Consultoría Empresarial</span>
+    <span class="strip-item"><span class="strip-dot"></span>ISO 9001 · EFQM</span>
+    <span class="strip-item"><span class="strip-dot"></span>Planificación Estratégica</span>
+    <span class="strip-item"><span class="strip-dot"></span>Sesión en 24h</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SOBRE MÍ
+═══════════════════════════════════════════════ -->
+<section class="sec about" id="sobre-mi">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-text rv-l">
+        <div class="eyebrow">Sobre Mí</div>
+        <h2 style="margin-bottom:22px">Una carrera dedicada a la rehabilitación y la excelencia</h2>
+        <p>Con más de 25 años de experiencia clínica y de gestión, he desarrollado mi carrera profesional entre la atención directa al paciente y la mejora continua de los sistemas sanitarios. Mi formación combina la terapia ocupacional con la gestión de calidad, la criminología y la neurorrehabilitación.</p>
+        <p>He trabajado en tres grandes hospitales universitarios de Madrid — incluyendo el Hospital Clínico San Carlos y el Hospital Gregorio Marañón — así como en los Hôpitaux Universitaires de Genève (Suiza), donde me formé en neurología, pediatría, mano y ortopedia.</p>
+        <div class="pull-quote">
+          <p>«Actualmente soy Responsable de Formación y Docencia en el Hospital Universitario Sureste, con certificaciones en ISO 9001 y el Modelo de Excelencia EFQM.»</p>
+        </div>
+        <a href="https://wa.me/34669777003?text=Hola%20Elena%2C%20me%20gustar%C3%ADa%20informarme%20sobre%20sus%20servicios%20online." class="btn btn-primary" target="_blank" rel="noopener" style="margin-top:6px">Reservar sesión online →</a>
+      </div>
+      <div class="hl-grid rv-r">
+        <div class="hl rv-s d1"><span class="hl-ic">🏥</span><h4>3 Hospitales</h4><p>Grandes centros universitarios de Madrid</p></div>
+        <div class="hl rv-s d2"><span class="hl-ic">🇨🇭</span><h4>Suiza</h4><p>HUG de Genève — formación internacional</p></div>
+        <div class="hl rv-s d3"><span class="hl-ic">✅</span><h4>ISO 9001</h4><p>Certificación en gestión de calidad</p></div>
+        <div class="hl rv-s d4"><span class="hl-ic">🏅</span><h4>EFQM</h4><p>Modelo de Excelencia</p></div>
+        <div class="hl rv-s d5"><span class="hl-ic">💻</span><h4>100% Online</h4><p>Videollamada · Toda España y LATAM</p></div>
+        <div class="hl rv-s d6"><span class="hl-ic">⚡</span><h4>Respuesta en 24h</h4><p>WhatsApp y email siempre disponibles</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     ORIENTACIÓN EMOCIONAL EN SEPARACIONES
+═══════════════════════════════════════════════ -->
+<section class="sec sep" id="separaciones">
+  <div class="sep-bg"></div>
+  <div class="sep-lines"></div>
+  <div class="wrap sep-inner">
+    <div style="max-width:760px" class="rv">
+      <div class="eyebrow">Orientación Emocional y Vital</div>
+      <h2>Consultoría para la gestión emocional<br>y reorientación de vida <em>en separaciones</em></h2>
+      <p class="sep-intro">Una separación no es solo el fin de una relación. Es la pérdida de una identidad, una rutina, un proyecto de vida. Desde la terapia ocupacional y la consultoría emocional, acompaño el proceso de reconstrucción — con rigor, sin juicios, desde el principio. Disponible 100% online.</p>
+    </div>
+    <div class="sep-grid">
+      <div class="gcard rv d1">
+        <span class="gcard-ic">🧭</span>
+        <div class="gcard-num">01</div>
+        <h4>Gestión Emocional en la Crisis</h4>
+        <p>Herramientas concretas para atravesar el duelo, la incertidumbre y la reorganización emocional durante los primeros meses. Sin prisa, sin positividad forzada.</p>
+      </div>
+      <div class="gcard rv d2">
+        <span class="gcard-ic">🔄</span>
+        <div class="gcard-num">02</div>
+        <h4>Reorientación Vital y de Roles</h4>
+        <p>Trabajo de reconstrucción de identidad, roles ocupacionales y proyecto de vida. ¿Quién soy yo ahora? Respuestas que nacen desde dentro.</p>
+      </div>
+      <div class="gcard rv d3">
+        <span class="gcard-ic">🏗️</span>
+        <div class="gcard-num">03</div>
+        <h4>Reorganización de la Vida Cotidiana</h4>
+        <p>Diseño de nuevas rutinas, reorganización del entorno y gestión del tiempo. La ocupación como herramienta de recuperación y autonomía.</p>
+      </div>
+    </div>
+    <div class="sep-cta rv">
+      <a href="https://wa.me/34669777003?text=Hola%20Elena%2C%20me%20gustar%C3%ADa%20informarme%20sobre%20la%20orientaci%C3%B3n%20emocional%20en%20separaciones." class="btn btn-primary" target="_blank" rel="noopener">💬 Consultar por WhatsApp</a>
+      <a href="#como-funciona" class="btn btn-glass">Ver cómo funciona →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CONSULTORÍA ONLINE
+═══════════════════════════════════════════════ -->
+<section class="sec s1" id="online">
+  <div class="s1-bg"></div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="sec-hdr rv">
+      <div class="eyebrow">01 · Consultoría Online</div>
+      <h2>Terapia Ocupacional por Videollamada</h2>
+      <p>Atención profesional desde cualquier lugar de España o Latinoamérica. La misma calidad clínica, sin desplazamientos, en el horario que te va mejor.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="sc rv d1"><div class="sc-ic">🧠</div><h4>Neurorrehabilitación Online</h4><p>Programas individualizados de recuperación funcional tras ictus, daño cerebral, Parkinson o esclerosis múltiple. Seguimiento continuo por videollamada.</p></div>
+      <div class="sc rv d2"><div class="sc-ic">💙</div><h4>Orientación Emocional</h4><p>Acompañamiento en separaciones, gestión del duelo, reorientación vital y reconstrucción de identidad. Sesiones online, sin barreras geográficas.</p></div>
+      <div class="sc rv d3"><div class="sc-ic">👴</div><h4>Personas Mayores</h4><p>Estimulación cognitiva, orientación a familias y adaptación del entorno por videollamada. Mantener la autonomía sin salir de casa.</p></div>
+      <div class="sc rv d4"><div class="sc-ic">🤝</div><h4>Orientación a Cuidadores</h4><p>Asesoramiento para familiares y cuidadores. Técnicas de manejo, prevención del agotamiento y estrategias para la vida diaria desde cualquier lugar.</p></div>
+      <div class="sc rv d5"><div class="sc-ic">🏡</div><h4>Adaptación del Hogar</h4><p>Evaluación y recomendaciones de accesibilidad por videollamada. Adaptaciones del entorno, ayudas técnicas y organización del espacio.</p></div>
+      <div class="sc rv d6"><div class="sc-ic">💚</div><h4>Salud Mental y Bienestar</h4><p>Intervención ocupacional en ansiedad, depresión y burnout. Recuperación de rutinas, roles y participación social significativa de forma online.</p></div>
+    </div>
+    <div class="s-cta rv"><a href="https://wa.me/34669777003?text=Hola%20Elena%2C%20me%20gustar%C3%ADa%20reservar%20una%20sesi%C3%B3n%20online." class="btn btn-primary" target="_blank" rel="noopener">💬 Reservar Sesión por WhatsApp</a></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CONSULTORÍA EMPRESARIAL
+═══════════════════════════════════════════════ -->
+<section class="sec s2" id="consultoria">
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="sec-hdr rv">
+      <div class="eyebrow gold">02 · Consultoría Empresarial</div>
+      <h2>Para Empresas e Instituciones Sanitarias</h2>
+      <p>Consultoría estratégica y de calidad para clínicas, residencias, hospitales y centros sociosanitarios. Online o presencial en Zona Noroeste de Madrid.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="sc s2 rv d1"><div class="sc-ic">📊</div><h4>Implementación ISO 9001</h4><p>Diseño, implantación y mantenimiento de sistemas de gestión de calidad adaptados a centros sanitarios y sociosanitarios.</p></div>
+      <div class="sc s2 rv d2"><div class="sc-ic">🏅</div><h4>Consultoría EFQM</h4><p>Evaluación y mejora según el Modelo de Excelencia EFQM. Planes de acción y preparación para reconocimientos.</p></div>
+      <div class="sc s2 gold-card rv d3"><div class="sc-ic">🎯</div><h4>Planificación Estratégica</h4><p>Diseño de planes estratégicos para centros sanitarios. Análisis, objetivos, hoja de ruta e indicadores clave de seguimiento.</p></div>
+      <div class="sc s2 rv d4"><div class="sc-ic">🏗️</div><h4>Diseño de Unidades de TO</h4><p>Planificación integral de unidades de terapia ocupacional: dotación, protocolos, flujos de trabajo y formación del equipo.</p></div>
+      <div class="sc s2 rv d5"><div class="sc-ic">📚</div><h4>Programas de Formación</h4><p>Diseño e impartición de programas formativos para equipos sanitarios. Formación continua y talleres especializados.</p></div>
+      <div class="sc s2 rv d6"><div class="sc-ic">🔍</div><h4>Auditoría de Procesos</h4><p>Revisión y optimización de procesos asistenciales. Estandarización de protocolos y mejora de indicadores de calidad.</p></div>
+    </div>
+    <div class="s-cta rv"><a href="mailto:elopez35gugu@gmail.com?subject=Consulta%20Corporativa%20-%20Presupuesto" class="btn btn-gold">📧 Solicitar Presupuesto</a></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CÓMO FUNCIONA
+═══════════════════════════════════════════════ -->
+<section class="sec how" id="como-funciona">
+  <div class="how-bg"></div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="sec-hdr rv">
+      <div class="eyebrow">Cómo Funciona</div>
+      <h2>Simple, rápido y completamente online</h2>
+      <p>Da el primer paso hoy. En menos de 24 horas tienes respuesta y tu primera sesión agendada.</p>
+    </div>
+    <div class="rv">
+      <div class="tabs-nav">
+        <button class="tab-btn a" data-t="pac">🧑 Pacientes y Familias</button>
+        <button class="tab-btn" data-t="sep">💙 Orientación Vital</button>
+        <button class="tab-btn" data-t="emp">🏢 Empresas</button>
+      </div>
+      <div class="tab-panel a" id="t-pac">
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><h4>Escríbeme</h4><p>WhatsApp o email. Cuéntame brevemente tu situación. Respondo en menos de 24 horas.</p></div>
+          <div class="step"><div class="step-n">2</div><h4>Valoración Online</h4><p>Realizamos una valoración completa por videollamada. Analizo tu situación funcional, entorno y objetivos.</p></div>
+          <div class="step"><div class="step-n">3</div><h4>Plan Personalizado</h4><p>Diseño un plan terapéutico con objetivos claros y técnicas basadas en evidencia científica.</p></div>
+          <div class="step"><div class="step-n">4</div><h4>Seguimiento Continuo</h4><p>Sesiones regulares por videollamada. Sin permanencia — tú decides el ritmo y la duración.</p></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="t-sep">
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><h4>Primera Consulta</h4><p>Una conversación sin juicios para entender dónde estás. No hace falta tenerlo todo claro: basta con dar el primer paso.</p></div>
+          <div class="step"><div class="step-n">2</div><h4>Mapa Emocional</h4><p>Identificamos los bloqueos, los miedos y los recursos con los que ya cuentas. Trazamos el punto de partida real.</p></div>
+          <div class="step"><div class="step-n">3</div><h4>Plan de Reorientación</h4><p>Diseñamos un plan concreto de reconstrucción: ocupaciones, rutinas, identidad. Accionable y tuyo.</p></div>
+          <div class="step"><div class="step-n">4</div><h4>Acompañamiento</h4><p>Te acompaño en el proceso ajustando el plan a tu ritmo. El objetivo no es «superarlo»: es construir algo mejor.</p></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="t-emp">
+        <div class="steps">
+          <div class="step"><div class="step-n">1</div><h4>Reunión Exploratoria</h4><p>Analizamos las necesidades de su organización: calidad, formación, planificación estratégica o diseño de servicios.</p></div>
+          <div class="step"><div class="step-n">2</div><h4>Diagnóstico y Propuesta</h4><p>Evalúo la situación actual y presento una propuesta detallada con alcance, metodología, plazos y presupuesto.</p></div>
+          <div class="step"><div class="step-n">3</div><h4>Implementación</h4><p>Trabajo con su equipo para implantar las mejoras: sistemas de calidad, protocolos, formación o planificación estratégica.</p></div>
+          <div class="step"><div class="step-n">4</div><h4>Evaluación y Mejora</h4><p>Medimos resultados con indicadores objetivos y garantizamos la sostenibilidad de las mejoras implementadas.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     TARIFAS
+═══════════════════════════════════════════════ -->
+<section class="sec pricing" id="precios">
+  <div class="pricing-bg"></div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="sec-hdr rv">
+      <div class="eyebrow">Tarifas</div>
+      <h2>Inversión clara, sin sorpresas</h2>
+      <p>Precios transparentes. Sin permanencia, sin letra pequeña.</p>
+    </div>
+    <div class="price-grid">
+      <div class="pc pc-std rv d1">
+        <span class="p-emoji">🧠</span>
+        <h3>Consulta Online</h3>
+        <p class="p-desc">Terapia ocupacional por videollamada para toda España y LATAM</p>
+        <div class="p-amt">70€</div>
+        <div class="p-unit">por sesión · sin permanencia</div>
+        <div class="p-divl"></div>
+        <ul class="p-list">
+          <li>Sesión de 50-60 min por videollamada</li>
+          <li>Valoración funcional inicial incluida</li>
+          <li>Plan de tratamiento personalizado</li>
+          <li>Orientación emocional en separaciones</li>
+          <li>Informe de evolución periódico</li>
+          <li>Contacto directo por WhatsApp</li>
+        </ul>
+        <a href="https://wa.me/34669777003?text=Hola%20Elena%2C%20me%20gustar%C3%ADa%20reservar%20una%20sesi%C3%B3n%20online." class="btn btn-glow" target="_blank" rel="noopener">💬 Reservar Ahora</a>
+      </div>
+
+      <div class="pc pc-feat rv d2">
+        <div class="feat-badge">Más Solicitado</div>
+        <span class="p-emoji">🏥</span>
+        <h3>Consultoría Empresarial</h3>
+        <p class="p-desc">Para clínicas, residencias, hospitales y centros sanitarios</p>
+        <div class="p-amt">120€</div>
+        <div class="p-unit">desde / hora · presupuesto personalizado</div>
+        <div class="p-divl"></div>
+        <ul class="p-list">
+          <li>Diagnóstico inicial de su organización</li>
+          <li>Propuesta detallada sin compromiso</li>
+          <li>ISO 9001 y EFQM</li>
+          <li>Planificación estratégica</li>
+          <li>Diseño de unidades de TO</li>
+          <li>Formación a equipos sanitarios</li>
+        </ul>
+        <a href="mailto:elopez35gugu@gmail.com?subject=Consulta%20Corporativa%20-%20Presupuesto" class="btn btn-gold">📧 Solicitar Presupuesto</a>
+      </div>
+
+      <div class="pc pc-std rv d3">
+        <span class="p-emoji">💙</span>
+        <h3>Orientación Vital</h3>
+        <p class="p-desc">Consultoría emocional en separaciones y reorientación de vida</p>
+        <div class="p-amt">70€</div>
+        <div class="p-unit">por sesión online · sin permanencia</div>
+        <div class="p-divl"></div>
+        <ul class="p-list">
+          <li>Gestión emocional en la crisis</li>
+          <li>Reorientación vital y de roles</li>
+          <li>Diseño de nuevas rutinas</li>
+          <li>Reorganización de vida cotidiana</li>
+          <li>Plan de reconstrucción personalizado</li>
+          <li>Acompañamiento continuo</li>
+        </ul>
+        <a href="https://wa.me/34669777003?text=Hola%20Elena%2C%20me%20gustar%C3%ADa%20informarme%20sobre%20la%20orientaci%C3%B3n%20vital." class="btn btn-primary" target="_blank" rel="noopener">💬 Consultar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FAQ
+═══════════════════════════════════════════════ -->
+<section class="sec faq" id="faq">
+  <div class="wrap">
+    <div class="sec-hdr rv">
+      <div class="eyebrow">Preguntas Frecuentes</div>
+      <h2>Todo lo que necesitas saber</h2>
+      <p>Respuestas claras sobre las sesiones online, la metodología y los servicios.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item rv">
+        <button class="faq-q"><span>¿Cómo funcionan las sesiones online?</span><div class="faq-ic">+</div></button>
+        <div class="faq-a"><div class="faq-ai">Las sesiones se realizan por videollamada a través de plataformas seguras como Zoom, Google Meet o Teams. Solo necesitas un dispositivo con cámara y conexión a internet. La calidad de la sesión es idéntica a la presencial para la gran mayoría de servicios: valoración funcional, orientación emocional, asesoramiento a cuidadores, adaptación del hogar y consultoría empresarial.</div></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q"><span>¿Puedo recibir atención desde cualquier país?</span><div class="faq-ic">+</div></button>
+        <div class="faq-a"><div class="faq-ai">Sí. Atiendo a pacientes de toda España y Latinoamérica por videollamada. La diferencia horaria no es un problema — acordamos el horario que mejor te viene. El idioma de atención es español.</div></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q"><span>¿Qué es la terapia ocupacional y en qué me puede ayudar?</span><div class="faq-ic">+</div></button>
+        <div class="faq-a"><div class="faq-ai">La terapia ocupacional es una disciplina sanitaria que ayuda a las personas a alcanzar la máxima independencia en sus actividades cotidianas. Trabaja con dificultades físicas, cognitivas, sensoriales o emocionales que limitan la participación en la vida diaria. El objetivo es recuperar, mantener o mejorar la funcionalidad: desde vestirse y cocinar hasta trabajar o participar en actividades sociales.</div></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q"><span>¿Cuánto dura cada sesión y con qué frecuencia?</span><div class="faq-ic">+</div></button>
+        <div class="faq-a"><div class="faq-ai">Cada sesión dura entre 50 y 60 minutos. La frecuencia se determina tras la valoración inicial: puede ser semanal, quincenal o mensual. Adaptamos el ritmo a tus necesidades. No existe ningún compromiso de permanencia — tú decides cuándo y cómo continuar.</div></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q"><span>¿Qué incluye la orientación emocional en separaciones?</span><div class="faq-ic">+</div></button>
+        <div class="faq-a"><div class="faq-ai">El acompañamiento en separaciones incluye gestión emocional durante la crisis, reorientación vital y de roles, diseño de nuevas rutinas y reorganización de la vida cotidiana. Se trabaja desde la terapia ocupacional con un enfoque en la recuperación de la autonomía, la identidad y el sentido de propósito. Es un proceso concreto, no solo «hablar»: hay herramientas, plan y seguimiento.</div></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q"><span>¿Qué diferencia a tu consultoría empresarial de otras?</span><div class="faq-ic">+</div></button>
+        <div class="faq-a"><div class="faq-ai">Mi consultoría combina una visión clínica real — con más de 25 años trabajando dentro de hospitales — con formación específica en gestión de calidad (ISO 9001, EFQM) y planificación estratégica. He sido responsable de calidad en el Hospital San Carlos y el Gregorio Marañón. No soy una consultora genérica: entiendo el sector desde dentro.</div></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q"><span>¿La terapia ocupacional la cubre el seguro médico?</span><div class="faq-ic">+</div></button>
+        <div class="faq-a"><div class="faq-ai">La consulta se abona directamente por sesión. Algunos seguros médicos privados incluyen terapia ocupacional en sus coberturas — consulta con tu aseguradora. Emito factura por cada sesión para que puedas presentarla si fuese necesario.</div></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q"><span>¿Hay atención presencial disponible?</span><div class="faq-ic">+</div></button>
+        <div class="faq-a"><div class="faq-ai">La modalidad principal es online, disponible para toda España y Latinoamérica. Para residentes en Madrid capital, Majadahonda, Las Rozas o Pozuelo de Alarcón (Zona Noroeste), existe también la posibilidad de atención domiciliaria en casos que así lo requieran. Consúltame por WhatsApp para valorarlo.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CONTACTO
+═══════════════════════════════════════════════ -->
+<section class="sec contact" id="contacto">
+  <div class="contact-bg"></div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="contact-grid">
+      <div class="rv-l">
+        <div class="eyebrow">Contacto</div>
+        <h2>¿Empezamos?</h2>
+        <p class="contact-sub">Primera respuesta en menos de 24 horas. Sin formularios, sin esperas. Solo escríbeme.</p>
+        <div class="c-item"><div class="c-ic">📱</div><div><h4>WhatsApp</h4><p>+34 669 777 003</p></div></div>
+        <div class="c-item"><div class="c-ic">📧</div><div><h4>Email</h4><p>elopez35gugu@gmail.com</p></div></div>
+        <div class="c-item"><div class="c-ic">🌍</div><div><h4>Atención Online</h4><p>Toda España y Latinoamérica por videollamada</p></div></div>
+        <div class="c-item"><div class="c-ic">📍</div><div><h4>Atención Presencial (opcional)</h4><p>Madrid · Majadahonda · Las Rozas · Pozuelo de Alarcón — Zona Noroeste</p></div></div>
+      </div>
+      <div class="contact-btns rv-r">
+        <a href="https://wa.me/34669777003?text=Hola%20Elena%2C%20me%20gustar%C3%ADa%20reservar%20una%20sesi%C3%B3n%20online%20de%20terapia%20ocupacional." class="btn btn-primary" target="_blank" rel="noopener">💬 Sesión de Terapia Online</a>
+        <a href="https://wa.me/34669777003?text=Hola%20Elena%2C%20me%20gustar%C3%ADa%20informarme%20sobre%20la%20orientaci%C3%B3n%20emocional%20en%20separaciones." class="btn btn-glow" target="_blank" rel="noopener">💙 Orientación Vital Online</a>
+        <a href="mailto:elopez35gugu@gmail.com?subject=Consulta%20Corporativa%20-%20Presupuesto" class="btn btn-gold">📧 Consultoría Empresarial</a>
+        <a href="https://wa.me/34669777003?text=Hola%20Elena%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n." class="btn btn-glass" target="_blank" rel="noopener">✉️ Consulta General</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Elena <em>López</em></div>
+        <p class="footer-desc">Terapeuta Ocupacional y Consultora Sanitaria. Más de 25 años de experiencia clínica. Atención 100% online para toda España y Latinoamérica.</p>
+      </div>
+      <div>
+        <h5>Servicios</h5>
+        <div class="footer-links">
+          <a href="#online">Consultoría Online</a>
+          <a href="#separaciones">Orientación Vital</a>
+          <a href="#consultoria">Consultoría Empresarial</a>
+          <a href="#precios">Tarifas</a>
+        </div>
+      </div>
+      <div>
+        <h5>Navegación</h5>
+        <div class="footer-links">
+          <a href="#sobre-mi">Sobre Mí</a>
+          <a href="#como-funciona">Cómo Funciona</a>
+          <a href="#faq">Preguntas Frecuentes</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-div"></div>
+    <div class="footer-btm">
+      <p>© 2026 Elena López Gutiérrez. Todos los derechos reservados.</p>
+      <p>Terapeuta Ocupacional Colegiada · Consultoría Online · España</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════ -->
+<script>
+/* ─────────────────────────────────────────────
+   CURSOR + TRAIL
+───────────────────────────────────────────── */
+
+/* ─────────────────────────────────────────────
+   HERO CANVAS — INTERACTIVE PARTICLES
+───────────────────────────────────────────── */
+const cvs = document.getElementById('hero-cvs');
+const ctx = cvs.getContext('2d');
+let pts = [], hAF;
+
+function szCvs() {
+  cvs.width  = cvs.offsetWidth;
+  cvs.height = cvs.offsetHeight;
+}
+szCvs();
+window.addEventListener('resize', () => { szCvs(); initPts(); }, { passive: true });
+
+// Hero mouse pos (relative to canvas)
+let hx = -1000, hy = -1000;
+document.getElementById('inicio').addEventListener('mousemove', e => {
+  const r = cvs.getBoundingClientRect();
+  hx = e.clientX - r.left;
+  hy = e.clientY - r.top;
+});
+document.getElementById('inicio').addEventListener('mouseleave', () => { hx = -1000; hy = -1000; });
+
+class Pt {
+  constructor() { this.reset(); }
+  reset() {
+    this.ox = this.x = Math.random() * cvs.width;
+    this.oy = this.y = Math.random() * cvs.height;
+    this.vx = this.vy = 0;
+    this.r = Math.random() * 1.6 + 0.4;
+    this.a = 0; this.grow = true;
+    this.maxA = Math.random() * 0.5 + 0.15;
+    const q = Math.random();
+    if      (q < .5) this.c = [111,174,140];
+    else if (q < .8) this.c = [196,132,90];
+    else             this.c = [200,220,210];
+  }
+  update() {
+    // Mouse repulsion
+    const dx = this.x - hx, dy = this.y - hy;
+    const d = Math.sqrt(dx*dx + dy*dy);
+    if (d < 120) {
+      const f = (120 - d) / 120 * 1.2;
+      this.vx += (dx / d) * f;
+      this.vy += (dy / d) * f;
+    }
+    // Return to origin
+    this.vx += (this.ox - this.x) * 0.03;
+    this.vy += (this.oy - this.y) * 0.03;
+    this.vx *= 0.88; this.vy *= 0.88;
+    this.x += this.vx; this.y += this.vy;
+    // Alpha
+    if (this.grow) { this.a += 0.004; if (this.a >= this.maxA) this.grow = false; }
+    else           { this.a -= 0.003; if (this.a <= 0) this.reset(); }
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(${this.c[0]},${this.c[1]},${this.c[2]},${this.a})`;
+    ctx.fill();
+  }
+}
+
+function initPts() {
+  const n = Math.min(80, Math.floor(cvs.width / 18));
+  pts = Array.from({ length: n }, () => new Pt());
+}
+initPts();
+
+function drawLines() {
+  for (let i = 0; i < pts.length; i++) {
+    for (let j = i + 1; j < pts.length; j++) {
+      const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < 140) {
+        ctx.beginPath();
+        ctx.moveTo(pts[i].x, pts[i].y);
+        ctx.lineTo(pts[j].x, pts[j].y);
+        ctx.strokeStyle = `rgba(79,114,98,${(1 - d/140) * 0.09})`;
+        ctx.lineWidth = 0.6;
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+function drawHeroGlow() {
+  if (hx < 0) return;
+  const grd = ctx.createRadialGradient(hx, hy, 0, hx, hy, 160);
+  grd.addColorStop(0, 'rgba(111,174,140,0.06)');
+  grd.addColorStop(1, 'transparent');
+  ctx.fillStyle = grd;
+  ctx.beginPath(); ctx.arc(hx, hy, 160, 0, Math.PI * 2); ctx.fill();
+}
+
+function animPts() {
+  ctx.clearRect(0, 0, cvs.width, cvs.height);
+  drawHeroGlow();
+  drawLines();
+  pts.forEach(p => { p.update(); p.draw(); });
+  hAF = requestAnimationFrame(animPts);
+}
+animPts();
+
+// Pause when off-screen
+new IntersectionObserver(en => {
+  if (en[0].isIntersecting) { if (!hAF) animPts(); }
+  else { cancelAnimationFrame(hAF); hAF = null; }
+}).observe(document.getElementById('inicio'));
+
+/* ─────────────────────────────────────────────
+   HERO MOUSE-FOLLOW GLOW (DOM element)
+───────────────────────────────────────────── */
+const heroGlow = document.getElementById('hero-glow');
+document.getElementById('inicio').addEventListener('mousemove', e => {
+  heroGlow.style.left = e.clientX + 'px';
+  heroGlow.style.top  = e.clientY + 'px';
+  heroGlow.style.opacity = '1';
+});
+document.getElementById('inicio').addEventListener('mouseleave', () => {
+  heroGlow.style.opacity = '0';
+});
+
+/* ─────────────────────────────────────────────
+   HERO PARALLAX (mouse moves text elements)
+───────────────────────────────────────────── */
+const heroL = document.getElementById('heroL');
+document.getElementById('inicio').addEventListener('mousemove', e => {
+  const rect = document.getElementById('inicio').getBoundingClientRect();
+  const cx = rect.width / 2, cy = rect.height / 2;
+  const px = (e.clientX - rect.left - cx) / cx;
+  const py = (e.clientY - rect.top - cy) / cy;
+  heroL.style.transform = `translate(${px * 8}px, ${py * 5}px)`;
+});
+document.getElementById('inicio').addEventListener('mouseleave', () => {
+  heroL.style.transform = '';
+});
+
+/* ─────────────────────────────────────────────
+   PROGRESS BAR
+───────────────────────────────────────────── */
+window.addEventListener('scroll', () => {
+  const s = window.scrollY, t = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('prog').style.width = (s / t * 100) + '%';
+}, { passive: true });
+
+/* ─────────────────────────────────────────────
+   NAV SCROLL
+───────────────────────────────────────────── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('s', window.scrollY > 60), { passive: true });
+
+/* ─────────────────────────────────────────────
+   HAMBURGER
+───────────────────────────────────────────── */
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mob');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('a');
+  mob.classList.toggle('open');
+  document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+});
+mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  ham.classList.remove('a'); mob.classList.remove('open');
+  document.body.style.overflow = '';
+}));
+
+/* ─────────────────────────────────────────────
+   REVEAL ON SCROLL
+───────────────────────────────────────────── */
+if (window.innerWidth > 768) {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -44px 0px' });
+  document.querySelectorAll('.rv,.rv-l,.rv-r,.rv-s').forEach(el => obs.observe(el));
+}
+
+/* ─────────────────────────────────────────────
+   SVG RING COUNTERS
+───────────────────────────────────────────── */
+const CIRC = 188; // 2 * π * 30
+
+function animRing(ring, target, total, delay) {
+  setTimeout(() => {
+    const pct = target / total;
+    ring.style.strokeDashoffset = CIRC * (1 - pct);
+  }, delay);
+}
+
+new IntersectionObserver(en => {
+  if (!en[0].isIntersecting) return;
+  animRing(document.getElementById('ring1'), 25, 40, 200);
+  animRing(document.getElementById('ring2'), 0.85, 1, 400);
+  animRing(document.getElementById('ring3'), 3, 5, 600);
+  en[0].target.style.transition = 'none';
+}, { threshold: 0.5 }).observe(document.querySelector('.hero-stats'));
+
+/* ─────────────────────────────────────────────
+   NUMBER COUNTERS
+───────────────────────────────────────────── */
+document.querySelectorAll('.counter').forEach(el => {
+  new IntersectionObserver(en => {
+    if (!en[0].isIntersecting) return;
+    const to = parseInt(el.dataset.to), dur = 1800;
+    const t0 = performance.now();
+    (function tick(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      const e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.floor(e * to);
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = to;
+    })(t0);
+  }, { threshold: 0.6 }).observe(el);
+});
+
+/* ─────────────────────────────────────────────
+   FAQ ACCORDION
+───────────────────────────────────────────── */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const ans  = item.querySelector('.faq-a');
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-a').style.maxHeight = '0';
+    });
+    if (!open) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+  });
+});
+
+/* ─────────────────────────────────────────────
+   TABS
+───────────────────────────────────────────── */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('a'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('a'));
+    btn.classList.add('a');
+    document.getElementById('t-' + btn.dataset.t).classList.add('a');
+  });
+});
+
+/* ─────────────────────────────────────────────
+   BUTTON RIPPLE
+───────────────────────────────────────────── */
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const r = this.getBoundingClientRect();
+    const rip = document.createElement('span');
+    rip.className = 'ripple';
+    const sz = Math.max(r.width, r.height);
+    rip.style.cssText = `width:${sz}px;height:${sz}px;left:${e.clientX - r.left - sz/2}px;top:${e.clientY - r.top - sz/2}px`;
+    this.appendChild(rip);
+    rip.addEventListener('animationend', () => rip.remove());
+  });
+});
+
+/* ─────────────────────────────────────────────
+   MAGNETIC BUTTONS
+───────────────────────────────────────────── */
+if (hasHover) {
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top  - r.height / 2;
+      btn.style.transform = `translateY(-2px) translate(${x * 0.12}px, ${y * 0.12}px)`;
+    });
+    btn.addEventListener('mouseleave', () => btn.style.transform = '');
+  });
+}
+
+/* ─────────────────────────────────────────────
+   3D CARD TILT
+───────────────────────────────────────────── */
+if (hasHover && window.innerWidth > 768) {
+  document.querySelectorAll('.sc,.gcard,.hl,.cred').forEach(card => {
+    card.style.transformStyle = 'preserve-3d';
+    card.style.perspective = '800px';
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - 0.5;
+      const y = (e.clientY - r.top)  / r.height - 0.5;
+      card.style.transform = `translateY(-7px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
+    });
+    card.addEventListener('mouseleave', () => card.style.transform = '');
+  });
+}
+
+/* ─────────────────────────────────────────────
+   SCROLL TO TOP
+───────────────────────────────────────────── */
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => toTop.classList.toggle('v', window.scrollY > 600), { passive: true });
+toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ─────────────────────────────────────────────
+   SMOOTH SCROLL
+───────────────────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const t = document.querySelector(this.getAttribute('href'));
+    if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - nav.offsetHeight - 20, behavior: 'smooth' }); }
+  });
+});
+
+/* ─────────────────────────────────────────────
+   HERO LOAD ANIMATION (staggered)
+───────────────────────────────────────────── */
+window.addEventListener('load', () => {
+  Array.from(document.getElementById('heroL').children).forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(32px)';
+    setTimeout(() => {
+      el.style.transition = 'opacity .85s cubic-bezier(0,0,.2,1), transform .85s cubic-bezier(0,0,.2,1)';
+      el.style.opacity = '1';
+      el.style.transform = '';
+    }, 150 + i * 140);
+  });
+});
+
+/* ─────────────────────────────────────────────
+   HOVER GLOW on service cards (dark sections)
+───────────────────────────────────────────── */
+if (hasHover) {
+  document.querySelectorAll('.s1 .sc, .sep .gcard').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width  * 100).toFixed(1);
+      const y = ((e.clientY - r.top)  / r.height * 100).toFixed(1);
+      card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(111,174,140,.14), rgba(255,255,255,.04) 60%)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.background = ''; });
+  });
+}
+</script>
+</body>
+</html>
