@@ -83,14 +83,16 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
   position:fixed;top:0;left:0;width:100%;z-index:1000;
   padding:22px 0;
   border-bottom:1px solid transparent;
-  transition:padding .35s var(--ease),background .35s,border-color .35s;
+  transition:padding .35s var(--ease),background .35s,border-color .35s,transform .32s var(--ease);
 }
+.nav.hidden{transform:translateY(-100%)}
 .nav.s{
   background:rgba(245,240,232,.96);
   backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
   border-bottom-color:var(--rule);
   padding:13px 0;
 }
+.nav.s .nav-logo,.nav.s .nav-logo em{color:var(--dark)}
 .nav-i{display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:0 clamp(20px,3.5vw,40px)}
 .nav-logo{font-family:var(--f-serif);font-size:1.38rem;font-weight:400;font-style:normal;color:var(--wh);letter-spacing:-.01em}
 .nav-logo em{font-style:normal;color:var(--wh)}
@@ -1437,7 +1439,14 @@ window.addEventListener('scroll',()=>{
 
 /* ── Nav scroll ── */
 const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('s',window.scrollY>60),{passive:true});
+let _lastSY=0;
+window.addEventListener('scroll',()=>{
+  const sy=window.scrollY;
+  nav.classList.toggle('s',sy>60);
+  if(sy>_lastSY&&sy>120){nav.classList.add('hidden')}
+  else{nav.classList.remove('hidden')}
+  _lastSY=sy;
+},{passive:true});
 
 /* ── Hamburger ── */
 const ham=document.getElementById('ham');
