@@ -783,9 +783,49 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
   .sep-cta{flex-direction:column;gap:10px}
   .sep-cta .btn{width:100%;justify-content:center}
 
-  /* Eventos tags */
-  .eventos-tags{gap:8px;margin-top:34px}
-  .eventos-tags span{font-size:.68rem;padding:6px 12px}
+  /* Eventos pack carousel */
+  #eventos .sep-grid{
+    display:flex;
+    overflow-x:scroll;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    margin:0 calc(-1 * clamp(20px,3.5vw,40px));
+    padding:0 clamp(20px,3.5vw,40px);
+    gap:0;border-radius:0;
+  }
+  #eventos .sep-grid::-webkit-scrollbar{display:none}
+  #eventos .sep-grid .gcard{
+    flex:0 0 85%;
+    scroll-snap-align:start;
+    border-right:1px solid rgba(245,240,232,.07);
+    border-radius:0;
+  }
+  #eventos .sep-grid .gcard:last-child{
+    border-right:none;
+    margin-right:clamp(20px,3.5vw,40px);
+  }
+  /* Pack dots */
+  .pack-dots{display:flex;justify-content:center;gap:7px;margin-top:20px}
+  .pack-dots span{
+    width:6px;height:6px;border-radius:50%;
+    background:rgba(245,240,232,.18);
+    transition:background .25s,transform .25s;
+  }
+  .pack-dots span.on{background:var(--sienna-l);transform:scale(1.25)}
+
+  /* Eventos tags — horizontal scroll */
+  .eventos-tags{
+    flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    gap:8px;margin-top:34px;
+    padding-bottom:4px;
+    margin-left:calc(-1 * clamp(20px,3.5vw,40px));
+    margin-right:calc(-1 * clamp(20px,3.5vw,40px));
+    padding-left:clamp(20px,3.5vw,40px);
+    padding-right:clamp(20px,3.5vw,40px);
+  }
+  .eventos-tags::-webkit-scrollbar{display:none}
+  .eventos-tags span{flex-shrink:0;font-size:.68rem;padding:7px 13px;white-space:nowrap}
 
   /* ── Service grids ── */
   .svc-grid{grid-template-columns:1fr}
@@ -1187,6 +1227,9 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
         <p>Gestión emocional avanzada, atención plena y bienestar neuro-cognitivo. Disponible en dos ediciones según el espacio: <em style="color:rgba(245,240,232,.55)">Edición Jardines</em> (al aire libre, primavera/verano) o <em style="color:rgba(245,240,232,.55)">Edición Refugio</em> (sala exclusiva, otoño/invierno).</p>
       </div>
     </div>
+    <div class="pack-dots" id="packDots" style="display:none">
+      <span class="on"></span><span></span><span></span>
+    </div>
     <div class="eventos-tags rv">
       <span><i data-lucide="building"></i> Hoteles Boutique y de Lujo</span>
       <span><i data-lucide="trees"></i> Eco-Resorts y Retiros</span>
@@ -1550,6 +1593,30 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
 const toTop=document.getElementById('toTop');
 window.addEventListener('scroll',()=>toTop.classList.toggle('v',window.scrollY>600),{passive:true});
 toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+/* ── Pack carousel dots ── */
+(function(){
+  const grid=document.querySelector('#eventos .sep-grid');
+  const dots=document.getElementById('packDots');
+  const dotEls=dots?dots.querySelectorAll('span'):[];
+  function initDots(){
+    if(window.innerWidth<=768){
+      dots.style.display='flex';
+      grid.addEventListener('scroll',updateDots,{passive:true});
+      updateDots();
+    } else {
+      dots.style.display='none';
+    }
+  }
+  function updateDots(){
+    const cards=grid.querySelectorAll('.gcard');
+    const w=grid.offsetWidth;
+    const idx=Math.round(grid.scrollLeft/w);
+    dotEls.forEach((d,i)=>d.classList.toggle('on',i===idx));
+  }
+  window.addEventListener('resize',initDots);
+  initDots();
+})();
 
 /* ── Smooth scroll ── */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
