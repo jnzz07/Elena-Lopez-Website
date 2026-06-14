@@ -477,15 +477,15 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
 /* ─────────────────────────────────────
    EVENTOS (dark, reuses sep structure)
 ───────────────────────────────────── */
-.eventos-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:44px}
+.eventos-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:44px}
 .eventos-tags span{
   display:inline-flex;align-items:center;gap:7px;
-  padding:7px 16px;
-  border:1px solid rgba(245,240,232,.1);border-radius:2px;
-  font-size:.73rem;color:rgba(245,240,232,.45);
-  transition:border-color .22s,color .22s;
+  padding:8px 16px;
+  border:1px solid rgba(245,240,232,.22);border-radius:2px;
+  font-size:.73rem;color:rgba(245,240,232,.75);
+  transition:border-color .22s,color .22s,background .22s;
 }
-.eventos-tags span:hover{border-color:rgba(245,240,232,.3);color:rgba(245,240,232,.72)}
+.eventos-tags span:hover{border-color:var(--sienna-l);color:var(--wh);background:rgba(165,67,46,.12)}
 .eventos-tags span svg.lucide{width:12px;height:12px;stroke:currentColor;stroke-width:1.75}
 
 /* ─────────────────────────────────────
@@ -813,19 +813,17 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
   }
   .pack-dots span.on{background:var(--sienna-l);transform:scale(1.25)}
 
-  /* Eventos tags — horizontal scroll */
+  /* Eventos tags — 2-col grid */
   .eventos-tags{
-    flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-    gap:8px;margin-top:34px;
-    padding-bottom:4px;
-    margin-left:calc(-1 * clamp(20px,3.5vw,40px));
-    margin-right:calc(-1 * clamp(20px,3.5vw,40px));
-    padding-left:clamp(20px,3.5vw,40px);
-    padding-right:clamp(20px,3.5vw,40px);
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:7px;margin-top:28px;justify-items:stretch;
   }
-  .eventos-tags::-webkit-scrollbar{display:none}
-  .eventos-tags span{flex-shrink:0;font-size:.68rem;padding:7px 13px;white-space:nowrap}
+  .eventos-tags span{
+    justify-content:flex-start;
+    font-size:.7rem;padding:9px 12px;
+    white-space:nowrap;overflow:hidden;
+    border-color:rgba(245,240,232,.18);
+  }
 
   /* ── Service grids ── */
   .svc-grid{grid-template-columns:1fr}
