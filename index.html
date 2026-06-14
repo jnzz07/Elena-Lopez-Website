@@ -92,8 +92,8 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
   padding:13px 0;
 }
 .nav-i{display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:0 clamp(20px,3.5vw,40px)}
-.nav-logo{font-family:var(--f-serif);font-size:1.38rem;font-weight:400;color:var(--dark);letter-spacing:-.01em}
-.nav-logo em{font-style:italic;color:var(--sienna)}
+.nav-logo{font-family:var(--f-serif);font-size:1.38rem;font-weight:400;font-style:normal;color:var(--wh);letter-spacing:-.01em}
+.nav-logo em{font-style:normal;color:var(--wh)}
 .nav-links{display:flex;align-items:center;gap:26px}
 .nav-links a{
   font-size:.73rem;font-weight:500;color:var(--muted);
@@ -110,7 +110,7 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
 .nav-links a:hover::after{width:100%}
 .nav-cta{
   display:inline-flex;align-items:center;justify-content:center;gap:7px;
-  padding:11px 18px;line-height:1;
+  height:36px;padding:0 18px;line-height:1;
   background:var(--sienna);color:var(--wh)!important;
   border-radius:2px;
   font-size:.72rem;font-weight:600;
@@ -225,7 +225,7 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
 .hero{
   min-height:100vh;display:flex;align-items:center;
   background:
-    linear-gradient(rgba(245,240,232,.72),rgba(245,240,232,.72)),
+    linear-gradient(rgba(18,15,13,.58),rgba(18,15,13,.58)),
     url('https://images.unsplash.com/photo-1687875495230-96dfea96d9da?w=1920&q=80&auto=format&fit=crop') center/cover no-repeat;
   padding:clamp(100px,14vw,160px) 0 clamp(60px,8vw,96px);
   position:relative;overflow:hidden;
@@ -246,11 +246,11 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
   color:var(--sienna);margin-bottom:26px;
 }
 .hero-kicker::before{content:'';display:block;width:32px;height:1px;background:var(--sienna)}
-.hero h1{color:var(--dark);margin-bottom:26px;letter-spacing:-.025em}
-.hero h1 em{font-style:italic;color:var(--sienna)}
+.hero h1{color:#fff;margin-bottom:26px;letter-spacing:-.025em}
+.hero h1 em{font-style:italic;color:var(--sienna-l)}
 .hero-sub{
   font-size:clamp(.96rem,1.1vw,1.06rem);
-  color:var(--muted);line-height:1.9;
+  color:rgba(255,255,255,.72);line-height:1.9;
   max-width:490px;margin-bottom:38px;
 }
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
@@ -362,7 +362,7 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
   border:1px solid var(--rule);
   position:relative;
 }
-.about-photo-inner img{width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block}
+.about-photo-inner img{width:100%;height:100%;object-fit:cover;object-position:center 70%;display:block}
 .photo-placeholder{
   display:flex;flex-direction:column;align-items:center;gap:14px;
   color:var(--muted);text-align:center;padding:32px;
@@ -482,7 +482,7 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
 .gcard-num{font-family:var(--f-serif);font-size:2.6rem;color:rgba(245,240,232,.05);line-height:1;margin-bottom:12px;font-weight:400}
 .gcard h4{font-size:1.1rem;color:var(--wh);margin-bottom:10px;font-family:var(--f-serif);font-weight:400}
 .gcard p{font-size:.85rem;color:rgba(245,240,232,.46);line-height:1.75}
-.sep-cta{display:flex;gap:14px;flex-wrap:wrap}
+.sep-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
 
 /* ─────────────────────────────────────
    SERVICE CARDS (light sections)
@@ -922,9 +922,34 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
   .step p{font-size:.82rem}
 
   /* ── Pricing ── */
-  .price-grid{grid-template-columns:1fr}
-  .price-grid .pc:last-child{grid-column:auto}
-  .pc{padding:28px 22px}
+  /* Tarifas carousel on mobile */
+  #precios .price-grid{
+    display:flex;
+    overflow-x:scroll;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    margin:0 calc(-1 * clamp(20px,3.5vw,40px));
+    padding:0 clamp(20px,3.5vw,40px);
+    gap:0;border-radius:0;
+  }
+  #precios .price-grid::-webkit-scrollbar{display:none}
+  #precios .price-grid .pc{
+    flex:0 0 85%;
+    scroll-snap-align:start;
+    border-right:1px solid rgba(245,240,232,.07);
+    border-radius:0;padding:28px 22px;
+  }
+  #precios .price-grid .pc:last-child{
+    grid-column:auto;border-right:none;
+    margin-right:clamp(20px,3.5vw,40px);
+  }
+  .price-dots{display:flex;justify-content:center;gap:7px;margin-top:20px}
+  .price-dots span{
+    width:6px;height:6px;border-radius:50%;
+    background:rgba(245,240,232,.18);
+    transition:background .25s,transform .25s;
+  }
+  .price-dots span.on{background:var(--sienna-l);transform:scale(1.25)}
   .pc-feat{border:none;border-top:1px solid rgba(58,143,163,.2);border-bottom:1px solid rgba(58,143,163,.2)}
   .p-amt{font-size:2.6rem}
   .price-banner{grid-template-columns:1fr;gap:18px}
@@ -1018,7 +1043,7 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
         <p class="hero-sub rv d2">Soy Elena López Gutiérrez, experta en bienestar grupal con más de 25 años de experiencia. Diseño sesiones de breathwork, mindfulness y neurocomunicación para hoteles, empresas, bodas y eventos en toda España.</p>
         <div class="hero-ctas rv d3">
           <a href="mailto:elopez35gugu@gmail.com?subject=Presupuesto%20Bienestar%20para%20Eventos" class="btn btn-primary"><i data-lucide="mail"></i> Solicitar Presupuesto</a>
-          <a href="#eventos" class="btn btn-outline">Ver Servicios <i data-lucide="arrow-right"></i></a>
+          <a href="#eventos" class="btn btn-light">Ver Servicios <i data-lucide="arrow-right"></i></a>
         </div>
         <div class="hero-stats rv d4">
           <div class="h-stat">
@@ -1183,7 +1208,7 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
     </div>
     <div class="sep-cta rv" style="margin-top:44px">
       <a href="https://wa.me/34669777003?text=Hola%20Elena%2C%20me%20gustar%C3%ADa%20informarme%20sobre%20los%20paquetes%20de%20bienestar%20para%20eventos." class="btn btn-primary" target="_blank" rel="noopener"><i data-lucide="message-circle"></i> Consultar Paquete</a>
-      <a href="mailto:elopez35gugu@gmail.com?subject=Presupuesto%20Bienestar%20para%20Eventos" class="btn btn-light"><i data-lucide="mail"></i> Solicitar Presupuesto</a>
+      <a href="mailto:elopez35gugu@gmail.com?subject=Presupuesto%20Bienestar%20para%20Eventos" class="btn btn-light" style="color:var(--sienna-l);border-color:var(--sienna)"><i data-lucide="mail"></i> Solicitar Presupuesto</a>
     </div>
   </div>
 </section>
@@ -1267,6 +1292,9 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
         </ul>
         <a href="mailto:elopez35gugu@gmail.com?subject=Presupuesto%20Inmersi%C3%B3n%20Total" class="btn btn-primary"><i data-lucide="mail"></i> Solicitar Presupuesto</a>
       </div>
+    </div>
+    <div class="price-dots" id="price-dots" style="display:none">
+      <span class="on"></span><span></span><span></span>
     </div>
 
     <div class="price-banner rv" style="margin-top:40px">
@@ -1504,6 +1532,29 @@ toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
   }
   window.addEventListener('resize',initDots);
   initDots();
+})();
+
+(function(){
+  const pgrid=document.querySelector('#precios .price-grid');
+  const pdots=document.getElementById('price-dots');
+  const pdotEls=pdots?pdots.querySelectorAll('span'):[];
+  function initPriceDots(){
+    if(window.innerWidth<=768){
+      pdots.style.display='flex';
+      pgrid.addEventListener('scroll',updatePriceDots,{passive:true});
+      updatePriceDots();
+    } else {
+      pdots.style.display='none';
+    }
+  }
+  function updatePriceDots(){
+    const cards=pgrid.querySelectorAll('.pc');
+    const w=pgrid.offsetWidth;
+    const idx=Math.round(pgrid.scrollLeft/w);
+    pdotEls.forEach((d,i)=>d.classList.toggle('on',i===idx));
+  }
+  window.addEventListener('resize',initPriceDots);
+  initPriceDots();
 })();
 
 /* ── Smooth scroll ── */
