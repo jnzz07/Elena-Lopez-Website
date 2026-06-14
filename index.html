@@ -109,8 +109,8 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
 .nav-links a:hover{color:var(--dark)}
 .nav-links a:hover::after{width:100%}
 .nav-cta{
-  display:inline-flex;align-items:center;gap:7px;
-  padding:9px 18px;
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:8px 18px;line-height:1;
   background:var(--sienna);color:var(--wh)!important;
   border-radius:2px;
   font-size:.72rem;font-weight:600;
@@ -165,8 +165,8 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
 .btn-outline{background:transparent;color:var(--dark);border-color:var(--dark)}
 .btn-outline:hover{background:var(--dark);color:var(--wh);transform:translateY(-2px)}
 
-.btn-light{background:transparent;color:var(--wh);border-color:rgba(254,252,248,.35)}
-.btn-light:hover{background:rgba(254,252,248,.1);border-color:rgba(254,252,248,.65)}
+.btn-light{background:transparent;color:#fff;border-color:#fff}
+.btn-light:hover{background:rgba(255,255,255,.12);border-color:#fff;transform:translateY(-2px)}
 
 .btn-sienna-out{background:transparent;color:var(--sienna-l);border-color:rgba(192,107,82,.4)}
 .btn-sienna-out:hover{background:var(--sienna);color:var(--wh);border-color:var(--sienna);transform:translateY(-2px)}
@@ -362,7 +362,7 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
   border:1px solid var(--rule);
   position:relative;
 }
-.about-photo-inner img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.about-photo-inner img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
 .photo-placeholder{
   display:flex;flex-direction:column;align-items:center;gap:14px;
   color:var(--muted);text-align:center;padding:32px;
@@ -1106,11 +1106,7 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
     <div class="about-top">
       <div class="about-photo rv-l">
         <div class="about-photo-inner">
-          <!-- Reemplaza con tu foto: <img src="elena.jpg" alt="Elena López Gutiérrez"> -->
-          <div class="photo-placeholder">
-            <i data-lucide="user"></i>
-            <span>Foto de Elena</span>
-          </div>
+          <img src="elena.jpg" alt="Elena López Gutiérrez">
         </div>
       </div>
       <div class="about-text rv-r">
