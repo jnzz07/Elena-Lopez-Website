@@ -603,9 +603,10 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
   pointer-events:none;
 }
 .price-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;align-items:stretch;
   background:rgba(245,240,232,.065);border-radius:3px;overflow:hidden;
 }
+.pc{display:flex;flex-direction:column}
 .pc{
   padding:38px 30px;background:rgba(245,240,232,.025);
   transition:background .28s var(--ease);
@@ -623,19 +624,20 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
 .pc-feat{background:rgba(58,143,163,.09);border-left:1px solid rgba(58,143,163,.25);border-right:1px solid rgba(58,143,163,.25)}
 .pc-feat:hover{background:rgba(58,143,163,.14)}
 .pc-feat::after{background:var(--sienna)}
+.feat-top{display:flex;align-items:center;gap:12px;margin-bottom:18px}
 .feat-badge{
-  display:inline-block;
+  display:inline-flex;align-items:center;
   background:var(--sienna);color:var(--wh);
   padding:4px 12px;border-radius:2px;
   font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
-  margin-bottom:20px;
 }
 .pc-ic{
-  width:42px;height:42px;border-radius:2px;
+  width:42px;height:42px;border-radius:2px;flex-shrink:0;
   border:1px solid rgba(245,240,232,.1);
   display:flex;align-items:center;justify-content:center;
-  margin-bottom:18px;
+  margin-bottom:0;
 }
+.pc:not(.pc-feat) .pc-ic{margin-bottom:18px}
 .pc-ic svg.lucide{width:19px;height:19px;stroke:rgba(245,240,232,.5);stroke-width:1.5}
 .pc-feat .pc-ic{background:rgba(58,143,163,.2);border-color:rgba(58,143,163,.35)}
 .pc-feat .pc-ic svg.lucide{stroke:var(--sienna-l)}
@@ -1262,8 +1264,10 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
         <a href="mailto:elopez35gugu@gmail.com?subject=Presupuesto%20Focus%20%26%20Energy" class="btn btn-light"><i data-lucide="mail"></i> Solicitar Presupuesto</a>
       </div>
       <div class="pc pc-feat rv d2">
-        <div class="feat-badge">Más Solicitado</div>
-        <div class="pc-ic"><i data-lucide="star"></i></div>
+        <div class="feat-top">
+          <div class="pc-ic"><i data-lucide="star"></i></div>
+          <div class="feat-badge">Más Solicitado</div>
+        </div>
         <h3>Vínculo &amp; Celebración</h3>
         <p class="p-desc">Bodas, cumpleaños, baby showers · 1,5–2 h</p>
         <div class="p-amt">400–600€</div>
