@@ -1351,6 +1351,10 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
 
 <!-- ═══════════ JAVASCRIPT ═══════════ -->
 <script>
+/* ── Force scroll to top on load ── */
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+window.scrollTo(0,0);
+
 /* ── Lucide icons ── */
 lucide.createIcons();
 
