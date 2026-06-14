@@ -224,14 +224,16 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
 ───────────────────────────────────── */
 .hero{
   min-height:100vh;display:flex;align-items:center;
-  background:var(--bg);
+  background:
+    linear-gradient(rgba(245,240,232,.91),rgba(245,240,232,.91)),
+    url('https://images.unsplash.com/photo-D8GVNJqyDDE?w=1920&q=80&auto=format') center/cover no-repeat;
   padding:clamp(100px,14vw,160px) 0 clamp(60px,8vw,96px);
   position:relative;overflow:hidden;
   border-bottom:1px solid var(--rule);
 }
 .hero::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 65% 55% at 88% 35%,rgba(165,67,46,.07) 0%,transparent 60%);
+  background:radial-gradient(ellipse 65% 55% at 88% 35%,rgba(165,67,46,.09) 0%,transparent 60%);
   pointer-events:none;
 }
 .hero-inner{
@@ -342,7 +344,11 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
 /* ─────────────────────────────────────
    ABOUT
 ───────────────────────────────────── */
-.about{background:var(--surface)}
+.about{
+  background:
+    linear-gradient(rgba(254,252,248,.96),rgba(254,252,248,.96)),
+    url('https://images.unsplash.com/photo-rIcmdKJUVnw?w=1920&q=80&auto=format') center/cover no-repeat;
+}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .about-text p{color:var(--mid);margin-bottom:18px;line-height:1.9;font-size:.96rem}
 .about-text p:first-of-type::first-letter{
@@ -393,6 +399,31 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
   background:radial-gradient(ellipse at 85% 18%,rgba(165,67,46,.14) 0%,transparent 52%),
              radial-gradient(ellipse at 8% 82%,rgba(74,98,117,.11) 0%,transparent 52%);
   pointer-events:none;
+}
+/* Events section photo layer */
+#eventos .sep-tex::after{
+  content:'';position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-ZARfCYDaVg0?w=1920&q=80&auto=format') center/cover no-repeat;
+  opacity:.08;
+}
+/* Pack card photo backgrounds */
+#eventos .sep-grid .gcard:nth-child(1){
+  background:
+    linear-gradient(rgba(26,21,18,.78),rgba(26,21,18,.78)),
+    url('https://images.unsplash.com/photo-ciqbTWuGgBI?w=800&q=80&auto=format') center/cover no-repeat;
+}
+#eventos .sep-grid .gcard:nth-child(2){
+  background:
+    linear-gradient(rgba(26,21,18,.72),rgba(26,21,18,.72)),
+    url('https://images.unsplash.com/photo-OkiElXd_EDQ?w=800&q=80&auto=format') center/cover no-repeat;
+}
+#eventos .sep-grid .gcard:nth-child(3){
+  background:
+    linear-gradient(rgba(26,21,18,.74),rgba(26,21,18,.74)),
+    url('https://images.unsplash.com/photo-HIugtasuIOA?w=800&q=80&auto=format') center/cover no-repeat;
+}
+#eventos .sep-grid .gcard:hover{
+  background-color:transparent;
 }
 .sep-intro{
   font-size:clamp(.98rem,1.2vw,1.07rem);
@@ -529,7 +560,15 @@ svg.lucide{display:inline-block;vertical-align:middle;flex-shrink:0}
 /* ─────────────────────────────────────
    PRICING
 ───────────────────────────────────── */
-.pricing{background:var(--dark);position:relative;overflow:hidden}
+.pricing{
+  background:var(--dark);
+  position:relative;overflow:hidden;
+}
+.pricing::before{
+  content:'';position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-nmHSysCA_Mk?w=1920&q=80&auto=format') center/cover no-repeat;
+  opacity:.07;pointer-events:none;
+}
 .pricing-bg{
   position:absolute;inset:0;
   background:radial-gradient(ellipse at 18% 55%,rgba(165,67,46,.09) 0%,transparent 52%),
